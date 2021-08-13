@@ -39,7 +39,7 @@ steps:
   inputs:
     command: push
     containerRegistry: my-docker-hub-registry
-    repository: pabeu/my-repo:docker-demo
+    repository: docker-demo
     tags: latest
 #docker build -t docker-demo .
 #docker tag docker-demo pabeu/my-repo:docker-demo
