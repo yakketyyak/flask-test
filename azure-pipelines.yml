@@ -30,7 +30,7 @@ steps:
   inputs:
     command: build
     containerRegistry: my-docker-hub-registry
-    repository: pabeu/my-repo:docker-demo
+    repository: docker-demo
     tags: latest
     #arguments: '--build-arg ubuntu_version=18.04 --build-arg qt_version_major=5.12 --build-arg qt_version_full=5.12.4'
 
