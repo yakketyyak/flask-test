@@ -6,6 +6,13 @@
 trigger:
 - master
 
+variables:
+  # Container registry service connection established during pipeline creation
+  dockerRegistryServiceConnection: 'aaaa-aaaa-aaaa-aaaa-aaaaa'
+  imageRepository: 'ubuntu-qt'
+  containerRegistry: 'myregistry.azurecr.io'
+  dockerfilePath: '$(Build.SourcesDirectory)/docker-qt-build/Dockerfile'
+
 pool:
   vmImage: ubuntu-latest
 
@@ -19,9 +26,21 @@ steps:
   displayName: 'Run a multi-line script'
 
 - task: Docker@2
-  displayName: Build and Push
+  displayName: Build
   inputs:
-    command: buildAndPush
+    command: build
     containerRegistry: my-docker-hub-registry
-    repository: my-first-image
+    repository: pabeu/my-repo:docker-demo
     tags: latest
+    #arguments: '--build-arg ubuntu_version=18.04 --build-arg qt_version_major=5.12 --build-arg qt_version_full=5.12.4'
+
+- task: Docker@2
+  displayName: Push
+  inputs:
+    command: push
+    containerRegistry: my-docker-hub-registry
+    repository: pabeu/my-repo:docker-demo
+    tags: latest
+#docker build -t docker-demo .
+#docker tag docker-demo pabeu/my-repo:docker-demo
+#docker push pabeu/my-repo:docker-demo
