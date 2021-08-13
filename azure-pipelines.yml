@@ -12,6 +12,7 @@ variables:
   imageRepository: 'ubuntu-qt'
   containerRegistry: 'myregistry.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/docker-qt-build/Dockerfile'
+  imageName: 'pabeu/my-repo:$(Build.BuildId)'  
 
 pool:
   vmImage: ubuntu-latest
@@ -30,7 +31,7 @@ steps:
   inputs:
     command: build
     containerRegistry: my-docker-hub-registry
-    repository: docker-demo
+    repository: '$(imageName)'
     tags: latest
     #arguments: '--build-arg ubuntu_version=18.04 --build-arg qt_version_major=5.12 --build-arg qt_version_full=5.12.4'
 
@@ -39,8 +40,9 @@ steps:
   inputs:
     command: push
     containerRegistry: my-docker-hub-registry
-    repository: docker-demo
+    repository: '$(imageName)'
     tags: latest
 #docker build -t docker-demo .
 #docker tag docker-demo pabeu/my-repo:docker-demo
 #docker push pabeu/my-repo:docker-demo
+#d716b6dd-e5bd-49c5-8cac-2865202787ef
