@@ -28,4 +28,4 @@ steps:
   displayName: Build and Push
   inputs:
     command: buildAndPush
-    repository: my-repo
+    repository: pabeu/my-repo:latest
