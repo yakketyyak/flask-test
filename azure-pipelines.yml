@@ -22,7 +22,7 @@ steps:
   displayName: Login to Docker Hub
   inputs:
     command: login
-    containerRegistry: https://index.docker.io/v2
+    containerRegistry: my-docker-hub-registry
 
 - task: Docker@2
   displayName: Build and Push
