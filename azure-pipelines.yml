@@ -22,7 +22,7 @@ steps:
   displayName: Login to Docker Hub
   inputs:
     command: login
-    containerRegistry: https://hub.docker.com/
+    containerRegistry: https://index.docker.io/pabeu
 
 - task: Docker@2
   displayName: Build and Push
