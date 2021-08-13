@@ -32,7 +32,7 @@ steps:
     command: build
     containerRegistry: my-docker-hub-registry
     repository: '$(imageName)'
-    tags: latest
+    tags: docker-demo:latest
     #arguments: '--build-arg ubuntu_version=18.04 --build-arg qt_version_major=5.12 --build-arg qt_version_full=5.12.4'
 
 - task: Docker@2
@@ -41,7 +41,7 @@ steps:
     command: push
     containerRegistry: my-docker-hub-registry
     repository: '$(imageName)'
-    tags: latest
+    tags: docker-demo:latest
 #docker build -t docker-demo .
 #docker tag docker-demo pabeu/my-repo:docker-demo
 #docker push pabeu/my-repo:docker-demo
