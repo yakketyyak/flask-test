@@ -22,5 +22,6 @@ steps:
   displayName: Build and Push
   inputs:
     command: buildAndPush
-    repository: my-repo/test
+    containerRegistry: my-docker-hub-registry
+    repository: my-first-image
     tags: latest
