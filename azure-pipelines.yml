@@ -12,7 +12,7 @@ variables:
   imageRepository: 'ubuntu-qt'
   containerRegistry: 'myregistry.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/docker-qt-build/Dockerfile'
-  imageName: 'pabeu'  
+  imageName: 'pabeu/my-repo'  
 
 pool:
   vmImage: ubuntu-latest

@@ -1,0 +1,30 @@
+stages:
+  - build
+  - test
+  - deploy
+
+build_stage:
+  image: python:3.9.6-buster
+  stage: build
+  script:
+    - python --version
+
+
+test_stage:
+  image: python:3.9.6-buster
+  stage: test
+  dependencies:
+    - build_stage
+  script:
+    - python -m unittest
+
+
+deploy_satge:
+  image: alpine
+  stage: deploy
+  only:
+    - develop
+  script:
+    - |
+      python --version
+      echo 'Deploy to Develop'
