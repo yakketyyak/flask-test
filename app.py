@@ -6,7 +6,7 @@ from user import user_manager
 def create_app():
     app = Flask(__name__)
     app.config['DEBUG'] = True
-    app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://sycad:sycad@localhost:5432/postgres"
+    app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://metis:metis@localhost:5432/metis_db"
     app.config['SECRET_KEY']="Test"
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
     register_extensions(app)

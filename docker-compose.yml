@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+
+  metis_db:
+    image: postgres:latest
+    container_name: postgres
+    hostname: postgres
+    restart: always
+    environment:
+      - POSTGRES_USER=metis
+      - POSTGRES_PASSWORD=metis
+      - POSTGRES_DB=metis_db
+    ports:
+      - 5432:5432
+    volumes:
+      - db_volume:/var/lib/postgresql
+
+
+  metis_app:
+    image: metis-app:latest
+    container_name: metis-app
+    hostname: metis-app
+    build: .
+    restart: on-failure
+    depends_on:
+      - metis_db
+      
+    ports:
+      - 5000:5000
+
+volumes:
+  db_volume:
