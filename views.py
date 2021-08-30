@@ -15,6 +15,11 @@ people = Blueprint('people', __name__,
 @people.route('/')
 def test():
   role = Role.query.filter_by(name="ROLE_USER").first()
+  if(role is None):
+    role = Role()
+    role.name = 'ROLE_USER'
+    db.session.add(role)
+    db.session.commit()  
 
   email = "email@gmail.com" + str(datetime.now().time())
   user_test = User()
