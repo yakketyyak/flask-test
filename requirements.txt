@@ -1,4 +1,8 @@
 flask_sqlalchemy
 flask_user==0.6.21
 email_validator
-psycopg2==2.9.1
+psycopg2-binary~=2.8.6
+requests~=2.26.0
+cryptography
+Flask~=2.0.1
+#docker run -d --cap-add=IPC_LOCK -e 'VAULT_DEV_ROOT_TOKEN_ID=root' -e 'VAULT_DEV_LISTEN_ADDRESS=0.0.0.0:8200' vault
